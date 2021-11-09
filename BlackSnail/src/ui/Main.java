@@ -31,7 +31,9 @@ public class Main {
 
 	}
 
-	// menu de opciones
+	/**
+	* Descripción:Menu de opciones</br>
+	*/
 	public int showMenuAndGetOption() {
 		System.out.println("\n\nMenu de la Tienda, digite una opciOn\n" + "(1) Crear nuevo suscriptor\n"
 				+ "(2) Desactivar un suscriptor\n"
@@ -52,6 +54,11 @@ public class Main {
 
 	}
 
+	/**
+	* Descripción: de acuerdo a la seleccion del usuario se dirige
+	al metodo que realiza la accion seleccionada</br>
+	* @param <userOption> <String> debe ser un numero entero
+	*/
 	public void answerOption(int userOption) {
 
 		switch (userOption) {
@@ -93,6 +100,10 @@ public class Main {
 		}
 	}
 
+	/**
+	* Descripción: ¿qué hace mi método? (concisa, un par de líneas)</br>
+	* @param <tittle> <String>, debe ser un dato tipo String
+	*/
 	private void showProduct() {
 		System.out.println("Ingrese el titulo del producto");
 		String tittle=sc.nextLine();
@@ -101,6 +112,10 @@ public class Main {
 		System.out.println(msg);
 	}
 
+
+	/**
+	* Descripción: agrega una serie</br>
+	*/
 	private void showSeries() {
 
 		String msg=controller.showSeries();
@@ -108,8 +123,22 @@ public class Main {
 	}
 
 	private void showMoviesPerCategory() {
+		System.out.println("Ingrese la categoria");
+		String category=sc.nextLine();
+		System.out.println(controller.showMovies(category));
+		
 	}
 
+
+
+	/**
+	* Descripción: crea la temporada siguiente de una serie </br>
+	* @param <num> <int>, debe ser un numero entero
+	* @param <cantEP> <int>, debe ser un numero entero
+	* @param <cantEPU> <int>, debe ser un numero entero
+	* @param <premiere> <String>, debe de ser un dato de tipo String
+	* @param <trailer> <String>, debe ser un dato de tipo String
+	*/
 	private void createNextSeason() {
 		System.out.println("Ingrese la informacion de la temporada ");
 		System.out.println("Ingrese el titulo de la serie ");
@@ -134,7 +163,17 @@ public class Main {
 		System.out.println(controller.createNextSeason(tittle, num,  cantEP,  cantEPU,premiere,  trailer));
 	}
 
-	// metodo que solicita los datos al usuario para regitrar a un suscriptor
+	/**
+	* Descripción: pide los datos de un suscriptor para agragarlo</br>
+	* @param <name> <String>, debe ser un dato de tipo String
+	* @param <id> <String>, debe ser un dato de tipo String
+	* @param <nit> <String>, debe ser un dato de tipo String
+	* @param <address> <String>, debe ser un dato de tipo String
+	* @param <webSite> <String>, debe ser un dato de tipo String
+	* @param <age> <String>, debe ser un numero entero
+	* @param <cantHrs> <String>, debe ser un numero entero
+	* @return <nombre_var> <tipo>, informacion sobre variable de retorno --> si retorno
+	*/
 	private void createSubscriber() {
 
 		String name, id, nit, address, webSite;
@@ -198,6 +237,21 @@ public class Main {
 		System.out.println("Name: " + controller.underAgeSubscriberWithMoreHours().toString());
 	}
 
+	/**
+	* Descripción: crea un nuevo producto</br>
+	* @param <userOption> <int>, dede ser un numero entero
+	* @param <named> <String>, dede ser un dato tipo String
+	* @param <sinop> <String>, dede ser un dato tipo String
+	* @param <premiere> <String>, dede ser un dato tipo String
+	* @param <namep> <String>, dede ser un dato tipo String
+	* @param <censu> <String>, dede ser un dato tipo String
+	* @param <num> <String>, debe ser un numero entero
+	* @param <cantEP> <String>, dede ser un numero entero
+	* @param <cantEPU> <String>, dede ser un numero entero
+	* @param <trailer> <String>, dede ser un dato tipo String
+	* @param <productora> <String>, dede ser un dato tipo String
+	* @param <age> <int>, dede ser un numero entero
+	*/
 	public void createProduct() {
 		System.out.println("Seleccione 1 para comprar serie o 2 para una pelicula");
 		int userOption = Integer.parseInt(sc.nextLine());
@@ -248,15 +302,16 @@ public class Main {
 
 		if (userOption == 2) {
 
-			
-
 			System.out.println("Ingrese la productora: ");
 			String produc = sc.nextLine();
 
 			System.out.println("Ingrese la mínima edad recomendada para verla: ");
 			int age = Integer.parseInt(sc.nextLine());
 
-			System.out.println(controller.addMovie(named, sinop, tittle, produc, premiere, age));
+			System.out.println("Ingrese la categoria de la pelicula,ROMANTIC, ACTION, SUSPENSE, TERROR, COMEDY: ");
+			String category =sc.nextLine();
+
+			System.out.println(controller.addMovie(named, sinop, tittle, produc, premiere, age,category));
 		}
 	}
 

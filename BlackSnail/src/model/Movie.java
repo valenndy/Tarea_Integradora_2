@@ -4,12 +4,14 @@ public class Movie extends Product{
 
 	private String prod;
 	private int pg;
+	private Category category;
 
 
-	public Movie (String tittle, String nameDirect, String synopsis, String premiereDate, String prod, int pg){
+	public Movie (String tittle, String nameDirect, String synopsis, String premiereDate, String prod, int pg,String category){
 		super (tittle, nameDirect, synopsis, premiereDate);
 		this.prod = prod;
 		this.pg = pg;
+		this.category=Category.valueOf(category);
 	}
 
 
@@ -32,6 +34,16 @@ public class Movie extends Product{
 	}
 
 	
+
+
+	public Category getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
 
 	public String toString() {

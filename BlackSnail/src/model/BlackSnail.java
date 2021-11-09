@@ -160,7 +160,7 @@ public class BlackSnail {
 		return message;
 	}
 
-	public String addMovie(String named, String sinop, String title, String produc, String premiereDate, int age){
+	public String addMovie(String named, String sinop, String title, String produc, String premiereDate, int age,String category){
 		boolean add = false;
 		String message ="";
 
@@ -168,7 +168,7 @@ public class BlackSnail {
 			if(products[i] == null){
 				add = true;
 				
-				products[i] = new Movie(named, sinop, title, produc, premiereDate, age);
+				products[i] = new Movie(named, sinop, title, produc, premiereDate, age,category);
 
 				message=( "El producto se agrego");
 			}else{
@@ -249,21 +249,23 @@ public class BlackSnail {
 	}
 
 
-	/*
+	
 	public String showMovies(String category) {
-		String message="";
+		String message=category+":\n";
 		for (int i = 0; i < products.length; i++) {
 			Product product=products[i];
 			if (product !=null && product instanceof Movie){
 				Movie movie=(Movie) product;
-				if (movie.getCat)
-				message=message+product.toString();
+				if (movie.getCategory().equals(Category.valueOf(category))){
+					message=message+product.toString();
+				}
+				
 			}
 			
 		}
 		return message;
 	}
-	*/
+	
 
 
 
